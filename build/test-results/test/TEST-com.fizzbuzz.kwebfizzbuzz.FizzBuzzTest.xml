@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.fizzbuzz.kwebfizzbuzz.FizzBuzzTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-02T12:37:37" hostname="ALEXAORUS" time="0.021">
-  <properties/>
-  <testcase name="should do something$k_web_fizzbuzz()" classname="com.fizzbuzz.kwebfizzbuzz.FizzBuzzTest" time="0.021"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
