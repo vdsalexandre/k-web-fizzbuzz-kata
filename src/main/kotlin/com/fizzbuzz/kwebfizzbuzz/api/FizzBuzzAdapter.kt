@@ -12,24 +12,19 @@ class FizzBuzzAdapter : FizzBuzzService {
         str1: String,
         str2: String
     ): String {
-        var fizzBuzzTextValue = "["
+        val fizzBuzzTextValues = mutableListOf<String>()
 
         for (i in 1..limit) {
-            fizzBuzzTextValue += when {
-                isFizzBuzzValue(i, int1) -> "$str1,"
-                isFizzBuzzValue(i, int2) -> "$str2,"
-                isFizzBuzzValue(i, int1) && isFizzBuzzValue(i, int2) -> "$str1$str2,"
-                else -> "\"$i\","
+            fizzBuzzTextValues += when {
+                isFizzBuzzValue(i, int1) && isFizzBuzzValue(i, int2) -> "$str1$str2"
+                isFizzBuzzValue(i, int1) -> str1
+                isFizzBuzzValue(i, int2) -> str2
+                else -> i.toString()
             }
         }
 
-        return "${removeLastComaFromText(fizzBuzzTextValue)}]"
+        return fizzBuzzTextValues.joinToString(separator = ",", prefix = "[", postfix = "]") { "\"$it\"" }
     }
 
-    private fun removeLastComaFromText(fizzBuzzTextValue: String) =
-        fizzBuzzTextValue.subSequence(0, fizzBuzzTextValue.length - 1)
-
-    private fun isFizzBuzzValue(value: Int, fizzBuzzValue: Int): Boolean {
-        return value % fizzBuzzValue == 0
-    }
+    private fun isFizzBuzzValue(value: Int, fizzBuzzValue: Int) = value % fizzBuzzValue == 0
 }

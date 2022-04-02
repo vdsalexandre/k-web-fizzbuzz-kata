@@ -7,8 +7,12 @@
 
 `gradle bootRun`
 
+### Description
+FizzBuzz Web app endpoint returns a JSON objects containing 1 to limit (for example 100) values.
+Every **int1** multiples will be replaced by **str1** text and exactly the same for **int2** and **str2** parameters.
+
 ### Application endpoint
-http://localhost:9090/fizzbuzz
+http://localhost:9090/fizzbuzz?
 
 * #### Parameters :
 
@@ -17,12 +21,12 @@ http://localhost:9090/fizzbuzz
 | int1    | 3        |
 | int2    | 5        |
 | limit   | 50       |
-| str1    | "fizz"   |
-| str2    | "buzz"   |
+| str1    | fizz     |
+| str2    | buzz     |
 
 * #### Example :
 
-http://localhost:9090/fizzbuzz?int1=3&int2=5&limit=50&str1="Fizz"&str2="buzz"
+http://localhost:9090/fizzbuzz?int1=3&int2=5&limit=50&str1=fizz&str2=buzz
 
 ### Project versions
 * Kotlin version : **1.6.10**
