@@ -11,8 +11,8 @@
 FizzBuzz Web app endpoint returns a JSON objects containing 1 to limit (for example 100) values.
 Every **int1** multiples will be replaced by **str1** text and exactly the same for **int2** and **str2** parameters.
 
-### Application endpoint
-POST http://localhost:9090/fizzbuzz
+### Application endpoints
+    POST http://localhost:9090/fizzbuzz
 
 * #### Parameters :
 
@@ -33,6 +33,8 @@ Body :
     "str1": "fizz",
     "str2": "buzz"
 }`
+
+    GET http://localhost:9090/fizzbuzz/statistics
 
 ### Project versions
 * Kotlin version : **1.6.10**
