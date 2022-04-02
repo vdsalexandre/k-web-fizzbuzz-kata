@@ -39,13 +39,14 @@ class FizzBuzzAdapter : FizzBuzzService {
         return if (entry != null) {
             val param = entry.key
 
-            "[\"int1\":" + param.int1 +
-                    ",\"int2\":" + param.int2 +
-                    ",\"limit\":" + param.limit +
-                    ",\"str1\":" + param.str1 +
-                    ",\"str2\":" + param.str2 + ",\"count\":" + entry.value
+            "{\"int1\":\"" + param.int1 + "\"" +
+                    ",\"int2\":\"" + param.int2 + "\"" +
+                    ",\"limit\":\"" + param.limit + "\"" +
+                    ",\"str1\":\"" + param.str1 + "\"" +
+                    ",\"str2\":\"" + param.str2 + "\"" +
+                    ",\"count\":\"" + entry.value + "\"}"
         } else
-            ""
+            "{ }"
     }
 
     private fun isFizzBuzzValue(value: Int, fizzBuzzValue: Int) = value % fizzBuzzValue == 0
