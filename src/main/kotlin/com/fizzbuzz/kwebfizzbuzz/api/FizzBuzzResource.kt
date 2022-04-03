@@ -18,11 +18,11 @@ class FizzBuzzResource(val fizzBuzzService: FizzBuzzService) {
     @PostMapping
     fun calculateFizzBuzzValues(@RequestBody fizzBuzzParam: FizzBuzzParam): String {
         logger.info("getFizzBuzzValues> " +
-                "int1: ${fizzBuzzParam.int1}, " +
-                "int2: ${fizzBuzzParam.int2}, " +
+                "first: ${fizzBuzzParam.first}, " +
+                "second: ${fizzBuzzParam.second}, " +
                 "limit: ${fizzBuzzParam.limit}, " +
-                "str1: ${fizzBuzzParam.str1}, " +
-                "str2: ${fizzBuzzParam.str2}"
+                "firstTextWord: ${fizzBuzzParam.firstTextWord}, " +
+                "secondTextWord: ${fizzBuzzParam.secondTextWord}"
         )
         fizzBuzzService.saveFizzBuzzParam(fizzBuzzParam)
         return fizzBuzzService.getFizzBuzzTextValues(fizzBuzzParam)
@@ -30,7 +30,7 @@ class FizzBuzzResource(val fizzBuzzService: FizzBuzzService) {
 
     @GetMapping(value = ["/statistics"], produces = ["application/json"])
     fun getFizzBuzzStatistics(): String {
-        val mostUsedParam = fizzBuzzService.getMostParamUsed()
+        val mostUsedParam = fizzBuzzService.getMostUsedFizzBuzzParamsAsText()
         logger.info("getFizzBuzzStatistics> $mostUsedParam")
         return mostUsedParam
     }

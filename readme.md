@@ -12,29 +12,24 @@ FizzBuzz Web app endpoint returns a JSON objects containing 1 to limit (for exam
 Every **int1** multiples will be replaced by **str1** text and exactly the same for **int2** and **str2** parameters.
 
 ### Application endpoints
+
     POST http://localhost:9090/fizzbuzz
 
 * #### Parameters :
-
-| key     | value    |
-|---------|----------|
-| int1    | 3        |
-| int2    | 5        |
-| limit   | 50       |
-| str1    | fizz     |
-| str2    | buzz     |
-
-* #### Example :
 Body : 
 `{
-    "int1": 3,
-    "int2": 5,
+    "first": 3,
+    "second": 5,
     "limit": 50,
-    "str1": "fizz",
-    "str2": "buzz"
+    "firstTextWord": "fizz",
+    "secondTextWord": "buzz"
 }`
-
+---
     GET http://localhost:9090/fizzbuzz/statistics
+* #### Parameters :
+none
+
+---
 
 ### Project versions
 * Kotlin version : **1.6.10**

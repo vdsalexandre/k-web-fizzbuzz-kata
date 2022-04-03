@@ -12,11 +12,11 @@ class FizzBuzzAdapter : FizzBuzzService {
 
         for (i in 1..fizzBuzzParam.limit) {
             fizzBuzzTextValues += when {
-                isFizzBuzzValue(i, fizzBuzzParam.int1) && isFizzBuzzValue(i, fizzBuzzParam.int2) -> {
-                    "${fizzBuzzParam.str1}${fizzBuzzParam.str2}"
+                isFizzBuzzValue(i, fizzBuzzParam.first) && isFizzBuzzValue(i, fizzBuzzParam.second) -> {
+                    "${fizzBuzzParam.firstTextWord}${fizzBuzzParam.secondTextWord}"
                 }
-                isFizzBuzzValue(i, fizzBuzzParam.int1) -> fizzBuzzParam.str1
-                isFizzBuzzValue(i, fizzBuzzParam.int2) -> fizzBuzzParam.str2
+                isFizzBuzzValue(i, fizzBuzzParam.first) -> fizzBuzzParam.firstTextWord
+                isFizzBuzzValue(i, fizzBuzzParam.second) -> fizzBuzzParam.secondTextWord
                 else -> i.toString()
             }
         }
@@ -33,18 +33,19 @@ class FizzBuzzAdapter : FizzBuzzService {
         }
     }
 
-    override fun getMostParamUsed(): String {
-        val entry = fizzBuzzParams.maxByOrNull { it.value }
+    override fun getMostUsedFizzBuzzParamsAsText(): String {
+        val fizzBuzzParamAndCount = fizzBuzzParams.maxByOrNull { it.value }
 
-        return if (entry != null) {
-            val param = entry.key
+        return if (fizzBuzzParamAndCount != null) {
+            val fizzBuzzParam = fizzBuzzParamAndCount.key
+            val count = fizzBuzzParamAndCount.value
 
-            "{\"int1\":\"" + param.int1 + "\"" +
-                    ",\"int2\":\"" + param.int2 + "\"" +
-                    ",\"limit\":\"" + param.limit + "\"" +
-                    ",\"str1\":\"" + param.str1 + "\"" +
-                    ",\"str2\":\"" + param.str2 + "\"" +
-                    ",\"count\":\"" + entry.value + "\"}"
+            "{\"first\":\"" + fizzBuzzParam.first + "\"" +
+                    ",\"second\":\"" + fizzBuzzParam.second + "\"" +
+                    ",\"limit\":\"" + fizzBuzzParam.limit + "\"" +
+                    ",\"firstTextWord\":\"" + fizzBuzzParam.firstTextWord + "\"" +
+                    ",\"secondTextWord\":\"" + fizzBuzzParam.secondTextWord + "\"" +
+                    ",\"count\":\"" + count + "\"}"
         } else
             "{ }"
     }

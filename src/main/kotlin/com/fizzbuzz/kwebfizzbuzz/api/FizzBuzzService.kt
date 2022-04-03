@@ -9,5 +9,5 @@ interface FizzBuzzService {
 
     fun saveFizzBuzzParam(fizzBuzzParam: FizzBuzzParam)
 
-    fun getMostParamUsed(): String
+    fun getMostUsedFizzBuzzParamsAsText(): String
 }
